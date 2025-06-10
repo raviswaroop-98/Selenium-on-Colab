@@ -27,11 +27,22 @@ That's it! The notebook handles the rest, setting up your Selenium environment a
 ### 1. Environment Setup (Shell Commands)
 This initial block uses Linux shell commands to prepare your Colab environment:
 ```bash
-%%shell
-sudo apt -y update
-wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-sudo apt install ./google-chrome-stable_current_amd64.deb
-pip install selenium chromedriver_autoinstaller
+RUN_SETUP_SHELL = True
+
+if RUN_SETUP_SHELL:
+  print("Running setup shell commands...")
+
+  !sudo apt -y update
+  !wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+  !sudo apt install ./google-chrome-stable_current_amd64.deb
+  !pip install selenium chromedriver_autoinstaller
+
+  print("Setup shell commands finished.")
+  RUN_SETUP_SHELL = False
+
+else:
+  print("Skipping setup shell commands.")
+  print("\n--- Running main code/commands ---")
 ```
 These commands update your system's package lists, download the Google Chrome browser, install it (automatically pulling in any needed system dependencies), and finally install the essential Python libraries: Selenium (the automation framework) and chromedriver_autoinstaller (to handle the tricky part of getting the right chromedriver).
 
