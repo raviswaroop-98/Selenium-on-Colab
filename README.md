@@ -1,4 +1,4 @@
-﻿# Selenium For Google Colab
+﻿# Selenium on Google Colab
 
 Running Selenium for web automation in environments like Google Colab can often be a real pain. It typically involves manually installing a browser, downloading the correct `chromedriver`, and then configuring everything just right. This notebook was created to eliminate that headache, providing a fully automated setup that acts as your perfect starting point for using Selenium directly within Google Colab.
 
